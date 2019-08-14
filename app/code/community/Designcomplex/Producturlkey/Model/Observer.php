@@ -18,23 +18,14 @@
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-class Designcomplex_Producturlkey_Model_Observer {
+class Designcomplex_Producturlkey_Model_Observer{
     public function updateurl($observer){
         //Mage::log('URLKey log', null, 'urlkey.log');
         if($observer->getEvent()->getProduct()){
             $Product=$observer->getEvent()->getProduct();
             $Url='';
-            /* Manufacturer added to urlkey */
-            if(!is_null($Product->getData('manufacturer'))):
-            $Url=$Url.$Product->getAttributeText('manufacturer').'-';
-            endif;
-            /* Name added to urlkey */
-            if(!is_null($Product->getData('name'))):
-            $Url=$Url.$Product->getData('name');
-            endif;
-            /* SKU added to urlkey */
-            if(!is_null($Product->getData('sku'))):
-            $Url=$Url.$Product->getData('sku').'-';
+            if(!is_null($Product->getData('matchcode'))):
+            $Url=$Url.$Product->getData('matchcode');
             endif;
             //Mage::log('URLKey log'.$Url, null, 'urlkey.log');
             $Product->setData('url_key',$Url);      

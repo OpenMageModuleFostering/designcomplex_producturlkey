@@ -28,7 +28,7 @@
     <global>
         <models>
             <Designcomplex_Producturlkey>
-                <class>Designcomplex_Urlkey_Model</class>
+                <class>Designcomplex_Producturlkey_Model</class>
             </Designcomplex_Producturlkey>
         </models>
   </global>
@@ -38,7 +38,7 @@
                 <observers>
                     <Designcomplex_Producturlkey>
                         <type>singleton</type>
-                        <class>Designcomplex_Urlkey/observer</class>
+                        <class>Designcomplex_Producturlkey/observer</class>
                         <method>updateurl</method>
                     </Designcomplex_Producturlkey>
                 </observers>

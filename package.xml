@@ -1,38 +1,44 @@
 <?xml version="1.0"?>
 <package>
     <name>Designcomplex_Producturlkey</name>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <stability>stable</stability>
-    <license>OSL</license>
+    <license>OSL 3.0</license>
     <channel>community</channel>
     <extends/>
-    <summary>autofill urlkey with attributes like manufacturer, name, sku, custom attributes, etc. on product save</summary>
-    <description>&lt;p&gt;With this extension you can manage an autofill of the urlkey from all possible attributes&lt;/p&gt;&#xD;
+    <summary>autofill urlkey with attributes like manufacturer, name, sku, custom attributes, etc. on product save </summary>
+    <description>With this extension you can manage an autofill of the urlkey from all possible attributes&#xD;
 &#xD;
-&lt;p&gt;&amp;lt;strong&amp;gt;IMPORTANT!&amp;lt;strong&amp;gt;&lt;br /&gt;&#xD;
-This extension requires file modification for customization.&lt;/p&gt;&#xD;
+IMPORTANT!&#xD;
+This extension requires file modification for customization.&#xD;
 &#xD;
-&lt;p&gt;Standard setup is:&lt;br /&gt;&#xD;
-&amp;lt;strong&amp;gt;manufacturer-name-skugetData('manufacturer'))):&#xD;
-            $Url=$Url.$Product-&amp;gt;getAttributeText('manufacturer').'-';&#xD;
-            endif;&#xD;
-            /* Name added to urlkey */&#xD;
-            if(!is_null($Product-&amp;gt;getData('name'))):&#xD;
-            $Url=$Url.$Product-&amp;gt;getData('name');&#xD;
-            endif;&#xD;
-            /* SKU added to urlkey */&#xD;
-            if(!is_null($Product-&amp;gt;getData('sku'))):&#xD;
-            $Url=$Url.$Product-&amp;gt;getData('sku').'-';&#xD;
-            endif;&#xD;
+Standard setup is:&#xD;
+manufacturer-name-sku&#xD;
 &#xD;
+To modify the setup you need to change the following lines in&#xD;
+/app/code/community/Designcomplex/Model/Observer.php&#xD;
 &#xD;
-&lt;p /&gt;If there are any questions, please let me know&lt;/p&gt;&#xD;
-&lt;p&gt;If there are people out who could help with system.xml and AdminOptions for this extension, please also let me know and help the community to have a better user interface.&lt;/p&gt;</description>
-    <notes>system.xml coders wanted!</notes>
+/* Manufacturer added to urlkey */&#xD;
+if(!is_null($Product-&gt;getData('manufacturer'))):&#xD;
+$Url=$Url.$Product-&gt;getAttributeText('manufacturer').'-';&#xD;
+endif;&#xD;
+/* Name added to urlkey */&#xD;
+if(!is_null($Product-&gt;getData('name'))):&#xD;
+$Url=$Url.$Product-&gt;getData('name');&#xD;
+endif;&#xD;
+/* SKU added to urlkey */&#xD;
+if(!is_null($Product-&gt;getData('sku'))):&#xD;
+$Url=$Url.$Product-&gt;getData('sku').'-';&#xD;
+endif;&#xD;
+&#xD;
+If there are any questions, please let me know&#xD;
+&#xD;
+If there are people out who could help with system.xml and AdminOptions for this extension, please also let me know and help the community to have a better user interface.</description>
+    <notes>fixed minor errors</notes>
     <authors><author><name>Thomas Klosinsky</name><user>thomasklosinsky</user><email>thomas@designcomplex.de</email></author></authors>
-    <date>2014-10-08</date>
-    <time>05:47:32</time>
-    <contents><target name="magecommunity"><dir name="Designcomplex"><dir name="Producturlkey"><dir name="Model"><file name="Observer.php" hash="6d0114330f4c559f1173acd2968647b6"/></dir><dir name="etc"><file name="config.xml" hash="24d20f75a57d2f2e1ed257df21638f8c"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Designcomplex_Producturlkey.xml" hash="24e50ca845668b2da93ff36e38e1644e"/></dir></target></contents>
+    <date>2015-02-24</date>
+    <time>15:43:18</time>
+    <contents><target name="magecommunity"><dir name="Designcomplex"><dir name="Producturlkey"><dir name="Model"><file name="Observer.php" hash="7e5f9cdc82fe95de347abcee95b28ac3"/></dir><dir name="etc"><file name="config.xml" hash="ad9c14d4905701a3d610a8f750351d15"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Designcomplex_Producturlkey.xml" hash="24e50ca845668b2da93ff36e38e1644e"/></dir></target></contents>
     <compatible/>
     <dependencies><required><php><min>5.1.0</min><max>6.0.0</max></php></required></dependencies>
 </package>
